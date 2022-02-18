@@ -5,3 +5,5 @@ WHERE STACKS ARE USED:
 - Managing function invocations
 - Undo / Redo
 - Routing (the history object)
+
+Pushing and popping are both constant time
