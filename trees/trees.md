@@ -16,3 +16,7 @@ Binary Search Trees
 - Nodes are basically sorted! 
 - Every node to the left of the parent is less
 - Every node to the right of the parent is more!
+
+BIG O of BST
+Insertion - O(log n)
+Searching - O(log n)
