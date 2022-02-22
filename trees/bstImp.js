@@ -156,9 +156,9 @@ class BinarySearchTree {
     let results = [];
     let current = this.root;
     (function inOrderHelper(node){
-      if (node.left) inOrderHelper(node.left);
+      node.left && inOrderHelper(node.left);
       results.push(node.value);
-      if (node.right) inOrderHelper(node.right);
+      node.right && inOrderHelper(node.right);
     }(current));
     return results;
   }
