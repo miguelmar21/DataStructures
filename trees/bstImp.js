@@ -84,7 +84,7 @@ class BinarySearchTree {
     }
   }
 
-  BreathFirstSearch(){ //For unsorted binary trees
+  breathFirstSearch(){ //For unsorted binary trees
     //Create a queue (this can be an array) and a variable to store the values of nodes visited
     //Place the root node in the queue
     //Loop as long as there is anything in the queue
@@ -105,7 +105,7 @@ class BinarySearchTree {
     return results;
   }
 
-  DepthFirstSearchPreOrder() { //For unsorted binary trees
+  depthFirstSearchPreOrder() { //For unsorted binary trees
     // Create a variable to store the values of nodes visited
     // Store the root of the BST in a variable called current
     // Write a helper function which accepts a node
@@ -116,17 +116,51 @@ class BinarySearchTree {
     // Return the array of values
     let results = [];
     let current = this.root;
-    function PreOrderHelper(node) {
+    function preOrderHelper(node) {
       results.push(node.value);
-      if (node.left) PreOrderHelper(node.left);
-      if (node.right) PreOrderHelper(node.right);
+      if (node.left) preOrderHelper(node.left);
+      if (node.right) preOrderHelper(node.right);
     }
-    PreOrderHelper(current);
+    preOrderHelper(current);
     return results;
   }
 
-  DepthFirstSearchPostOrder(){ //For unsorted binary trees
+  depthFirstSearchPostOrder(){ //For unsorted binary trees
+    // Create a variable to store the values of nodes visited
+    // Store the root of the BST in a variable called current
+    // Write a helper function which accepts a node
+    //  If the node has a left prop, call the helper func with the left prop
+    //  If the node has a right prop, call the helper func with the right prop
+    //  Push the value of the node to the variable that stores the values
+    //  Invoke the helper function with the current variable
+    // Return the array of values
+    let results = [];
+    let current = this.root;
+    (function postOrderHelper(node) {
+      if (node.left) postOrderHelper(node.left);
+      if (node.right) postOrderHelper(node.right);
+      results.push(node.value);
+    }(current));
+    return results;
+  }
 
+  depthFirstSearchInOrder(){ // Works well for ordered trees too
+    // Create a variable to store the values of nodes visited
+    // Store the root of the BST in a variable called current
+    // Write a helper function which accepts a node
+    //  If the node has a left prop, call the helper func with the left prop
+    //  Push the value of the node to the variable that stores the values
+    //  If the node has a right prop, call the helper func with the right prop
+    //  Invoke the helper function with the current variable
+    // Return the array of values
+    let results = [];
+    let current = this.root;
+    (function inOrderHelper(node){
+      if (node.left) inOrderHelper(node.left);
+      results.push(node.value);
+      if (node.right) inOrderHelper(node.right);
+    }(current));
+    return results;
   }
 }
 
@@ -138,7 +172,7 @@ tree.insert(11);
 tree.insert(16);
 tree.insert(2);
 tree.insert(7);
-console.log(tree.DepthFirstSearchPreOrder());
+console.log(tree.depthFirstSearchInOrder());
 
 
 //     10
