@@ -106,6 +106,26 @@ class BinarySearchTree {
   }
 
   DepthFirstSearchPreOrder() { //For unsorted binary trees
+    // Create a variable to store the values of nodes visited
+    // Store the root of the BST in a variable called current
+    // Write a helper function which accepts a node
+    //  Push the value of the node to the variable that stores the values
+    //  If the node has a left property, call the helper function with the left prop
+    //  If the node has a right property, call the helper function with the right
+    // Invoke the helper function with the current variable
+    // Return the array of values
+    let results = [];
+    let current = this.root;
+    function PreOrderHelper(node) {
+      results.push(node.value);
+      if (node.left) PreOrderHelper(node.left);
+      if (node.right) PreOrderHelper(node.right);
+    }
+    PreOrderHelper(current);
+    return results;
+  }
+
+  DepthFirstSearchPostOrder(){ //For unsorted binary trees
 
   }
 }
@@ -118,7 +138,7 @@ tree.insert(11);
 tree.insert(16);
 tree.insert(2);
 tree.insert(7);
-console.log(tree.BreathFirstSearch());
+console.log(tree.DepthFirstSearchPreOrder());
 
 
 //     10
