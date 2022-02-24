@@ -54,7 +54,7 @@ class MaxBinaryHeap {
 
   sinkDown() {
     let idx = 0;
-    const length = this.value.length;
+    const length = this.values.length;
     const element = this.values[0];
     while (true) {
       let leftChildIdx = 2 * idx + 1;
@@ -62,7 +62,7 @@ class MaxBinaryHeap {
       let leftChild, rightChild;
       let swap = null;
       if (leftChildIdx < length) {
-        leftChild = this.value[leftChildIdx];
+        leftChild = this.values[leftChildIdx];
         if (leftChild > element) {
           swap = leftChildIdx;
         }
